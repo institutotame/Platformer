@@ -7,5 +7,7 @@ enum class Components {
     DecorativeBlockUpdateComponent,
     InanimateBlockGraphicsComponent,
     InanimateBlockUpdateComponent,
-    MovableBlockUpdateComponent
+    MovableBlockUpdateComponent,
+    PlayerInputComponent,
+    PlayerUpdateComponent
 }
