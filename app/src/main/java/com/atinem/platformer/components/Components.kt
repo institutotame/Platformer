@@ -1,4 +1,4 @@
-package com.atinem.platformer.specs.gameobject
+package com.atinem.platformer.components
 
 enum class Components {
     AnimatedGraphicsComponent,

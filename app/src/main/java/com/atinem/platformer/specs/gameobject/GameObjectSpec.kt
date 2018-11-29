@@ -1,6 +1,7 @@
 package com.atinem.platformer.specs.gameobject
 
 import android.graphics.PointF
+import com.atinem.platformer.components.Components
 
 abstract class GameObjectSpec(
     val tag: String,
