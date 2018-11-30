@@ -5,7 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.PointF
 import android.graphics.RectF
-import com.atinem.Camera
+import com.atinem.platformer.Camera
 import com.atinem.platformer.BitmapStore
 import com.atinem.platformer.Transform
 import com.atinem.platformer.specs.gameobject.GameObjectSpec

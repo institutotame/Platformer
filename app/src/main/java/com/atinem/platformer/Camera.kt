@@ -1,4 +1,4 @@
-package com.atinem
+package com.atinem.platformer
 
 import android.graphics.PointF
 import android.graphics.RectF

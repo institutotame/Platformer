@@ -2,7 +2,6 @@ package com.atinem.platformer
 
 import android.content.Context
 import android.graphics.PointF
-import com.atinem.GameObject
 import com.atinem.platformer.components.Components
 import com.atinem.platformer.components.DecorativeBlockUpdateComponent
 import com.atinem.platformer.components.InanimateBlockGraphicsComponent

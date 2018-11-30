@@ -1,7 +1,5 @@
 package com.atinem.platformer
 
-import com.atinem.GameObject
-
 class PhysicsEngine {
     fun update(fps: Long, gameObjects: List<GameObject>, gameState: GameState){
         for(gameObject in gameObjects){

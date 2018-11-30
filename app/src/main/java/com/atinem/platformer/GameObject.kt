@@ -1,10 +1,9 @@
-package com.atinem
+package com.atinem.platformer
 
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.PointF
-import com.atinem.platformer.Transform
 import com.atinem.platformer.components.GraphicsComponent
 import com.atinem.platformer.components.UpdateComponent
 import com.atinem.platformer.specs.gameobject.GameObjectSpec

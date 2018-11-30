@@ -1,12 +1,9 @@
 package com.atinem.platformer
 
-import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.PointF
 import android.view.SurfaceHolder
-import com.atinem.Camera
-import com.atinem.GameObject
 
 class Renderer(val surfaceHolder: SurfaceHolder, screenSize: PointF) {
     val paint = Paint()
