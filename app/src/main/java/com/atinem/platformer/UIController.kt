@@ -1,13 +1,15 @@
 package com.atinem.platformer
 
+import android.graphics.Point
 import android.graphics.PointF
 import android.graphics.Rect
+import android.graphics.RectF
 import android.view.MotionEvent
 import com.atinem.platformer.components.GameEngineBroadcaster
 import com.atinem.platformer.components.InputObserver
 
-class UIController(gameEngineBroadcaster: GameEngineBroadcaster, size: PointF): InputObserver {
-    private val third: Float
+class UIController(gameEngineBroadcaster: GameEngineBroadcaster, size: Point): InputObserver {
+    private val third: Int
 
     private var initialPress = false
 

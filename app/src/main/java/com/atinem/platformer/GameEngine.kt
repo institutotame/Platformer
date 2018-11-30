@@ -15,14 +15,16 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import java.util.concurrent.CopyOnWriteArrayList
 
-class GameEngine(context: Context, size: PointF): SurfaceView(context), GameEngineBroadcaster, EngineController {
+class GameEngine(context: Context, size: Point): SurfaceView(context), GameEngineBroadcaster, EngineController {
     private var job: Job? = null
     private var fps: Long = 0
+
+    val inputObservers: CopyOnWriteArrayList<InputObserver> = CopyOnWriteArrayList()
 
     private val gameState: GameState = GameState(this,context)
     val uiController: UIController = UIController(this,size)
 
-    val inputObservers: CopyOnWriteArrayList<InputObserver> = CopyOnWriteArrayList()
+
 
     val hud: HUD = HUD(context,size)
     val levelManager: LevelManager

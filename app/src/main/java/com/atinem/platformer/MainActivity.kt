@@ -14,8 +14,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val display = windowManager.defaultDisplay
-        val size = PointF()
-        display.getSize(size.toPoint())
+        val size = Point()
+        display.getSize(size)
 
         gameEngine = GameEngine(this,size)
         setContentView(gameEngine)

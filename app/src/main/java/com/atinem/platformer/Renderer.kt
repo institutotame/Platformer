@@ -2,12 +2,13 @@ package com.atinem.platformer
 
 import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.Point
 import android.graphics.PointF
 import android.view.SurfaceHolder
 
-class Renderer(val surfaceHolder: SurfaceHolder, screenSize: PointF) {
+class Renderer(val surfaceHolder: SurfaceHolder, screenSize: Point) {
     val paint = Paint()
-    val camera = Camera(screenSize.x, screenSize.y)
+    val camera = Camera(screenSize.x.toFloat(), screenSize.y.toFloat())
 
     fun getPixelsPerMetre() = camera.pixelsPerMetre
 
@@ -17,7 +18,7 @@ class Renderer(val surfaceHolder: SurfaceHolder, screenSize: PointF) {
             canvas.drawColor(Color.argb(255,0,0,0))
 
             if(gameState.drawing){
-                camera.setWorldCentre(gameObjects[LevelManager.PLAYER_INDEX].transform.location)
+                camera.setWorldCentre(gameObjects[LevelManager.PLAYER_INDEX].transform?.location)
 
                 for(gameObject in gameObjects){
                     if(gameObject.isActive){

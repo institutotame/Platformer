@@ -42,9 +42,12 @@ class GameObject {
         }
     }
 
-    fun update(fps: Long, playerTransform: Transform){
+    fun update(fps: Long, playerTransform: Transform?){
         transform?.let {
-            updateComponent?.update(fps,it,playerTransform)
+            playerTransform?.let{letPlayerTransform ->
+                updateComponent?.update(fps,it,letPlayerTransform)
+            }
+
         }
     }
 

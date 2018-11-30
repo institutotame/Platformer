@@ -23,9 +23,11 @@ class Camera(screenXResolution: Float, screenYResolution: Float) {
 
     }
 
-    fun setWorldCentre(worldCentre: PointF){
-        currentCameraWorldCentre.x = worldCentre.x
-        currentCameraWorldCentre.y = worldCentre.y
+    fun setWorldCentre(worldCentre: PointF?){
+        worldCentre?.let {
+            currentCameraWorldCentre.x = it.x
+            currentCameraWorldCentre.y = it.y
+        }
     }
 
     fun worldToScreen(objectX: Float, objectY: Float, objectWidth: Float, objectHeight: Float): RectF{
