@@ -57,7 +57,7 @@ class LevelManager(context: Context, gameEngine: GameEngine, pixelsPerMetre: Int
         levelToLoad?.let {
             for(i in 0 until it.size){
                 for(j in 0 until it[i].length){
-                    val coords = PointF(i.toFloat(),j.toFloat())
+                    val coords = PointF(j.toFloat(),i.toFloat())
                     when(it[i][j]){
                         '1' -> objects.add(factory.create(BackgroundCitySpec(),coords))
                         '2' -> objects.add(factory.create(BackgroundUndergroundSpec(), coords))
@@ -81,14 +81,22 @@ class LevelManager(context: Context, gameEngine: GameEngine, pixelsPerMetre: Int
                         'i' -> objects.add(factory.create(StalagmiteTileSpec(), coords))
                         'd' -> objects.add(factory.create(DeadTreeTileSpec(), coords))
                         'e' -> objects.add(factory.create(SnowyTreeTileSpec(), coords))
-                        'x' -> objects.add(factory.create(CollectibleObjectSpec(), coords))
+                        'x' -> {
+                            objects.add(factory.create(CollectibleObjectSpec(), coords))
+                            gameState.coinAddedToLevel()
+                        }
                         'z' -> objects.add(factory.create(FireTileSpec(), coords))
                         'y' -> objects.add(factory.create(InvisibleDeathTenByTenSpec(), coords))
+                        '.' -> airInLevel()
                         else -> Log.d("Unhandled item", "Row: $i, Column: $j")
                     }
                 }
             }
         }
+
+    }
+
+    private fun airInLevel(){
 
     }
 

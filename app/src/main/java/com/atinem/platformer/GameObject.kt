@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.PointF
 import com.atinem.platformer.components.GraphicsComponent
+import com.atinem.platformer.components.PlayerInputComponent
 import com.atinem.platformer.components.UpdateComponent
 import com.atinem.platformer.specs.gameobject.GameObjectSpec
 
@@ -32,9 +33,11 @@ class GameObject {
         this.updateComponent = updateComponent
     }
 
-    /*fun setPlayerInputTransform(playerInputComponent: PlayerInputComponent){
-        playerInputComponent.setTransform(transform)
-    }*/
+    fun setPlayerInputTransform(playerInputComponent: PlayerInputComponent){
+        transform?.let {
+            playerInputComponent.setTransform(it)
+        }
+    }
 
     fun draw(canvas: Canvas, paint: Paint, camera: Camera){
         transform?.let {

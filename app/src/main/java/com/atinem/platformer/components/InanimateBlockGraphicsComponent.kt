@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.PointF
 import android.graphics.RectF
+import android.util.Log
 import com.atinem.platformer.Camera
 import com.atinem.platformer.BitmapStore
 import com.atinem.platformer.Transform
@@ -16,6 +17,7 @@ class InanimateBlockGraphicsComponent : GraphicsComponent {
 
     override fun initialize(context: Context, spec: GameObjectSpec, objectSize: PointF, pixelsPerMetre: Int) {
         bitmapName = spec.bitmapName
+        Log.d("INITIALIZEINANIMATE", bitmapName)
         BitmapStore.addBitmap(context,bitmapName,objectSize,pixelsPerMetre,false)
     }
 
@@ -28,8 +30,14 @@ class InanimateBlockGraphicsComponent : GraphicsComponent {
             transform.getSize().x,
             transform.getSize().y
         )
-        bitmap?.let {
-            canvas.drawBitmap(it,screenCoordinates.left,screenCoordinates.top,paint)
+
+        Log.d(bitmapName, "${screenCoordinates.width()} x ${screenCoordinates.height()}")
+
+        if(bitmap!=null){
+            canvas.drawBitmap(bitmap,screenCoordinates.left,screenCoordinates.top,paint)
+        }else{
+            Log.d("INANIMATEERROR", "No bitmap")
         }
+
     }
 }

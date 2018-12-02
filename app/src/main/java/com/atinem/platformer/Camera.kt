@@ -14,9 +14,9 @@ class Camera(screenXResolution: Float, screenYResolution: Float) {
         screenCentreX = screenXResolution / 2
         screenCentreY = screenYResolution / 2
 
-        val pixelsPerMetreToResolutionRatio: Int = 48
+        val pixelsPerMetreToResolutionRatio = 48
 
-        pixelsPerMetre = screenXResolution * pixelsPerMetreToResolutionRatio
+        pixelsPerMetre = screenXResolution / pixelsPerMetreToResolutionRatio
 
         convertedRect = RectF()
         currentCameraWorldCentre = PointF()

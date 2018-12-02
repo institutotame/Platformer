@@ -2,9 +2,6 @@ package com.atinem.platformer
 
 import android.content.Context
 import android.graphics.Point
-import android.graphics.PointF
-import android.provider.Contacts
-import android.provider.Settings
 import android.view.MotionEvent
 import android.view.SurfaceView
 import com.atinem.platformer.components.EngineController

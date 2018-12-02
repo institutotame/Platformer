@@ -1,10 +1,9 @@
 package com.atinem.platformer
 
-import android.graphics.Point
 import android.graphics.PointF
 import android.graphics.RectF
 
-class Transform(val speed: Float, val objectWidth: Float, val objectHeight: Float, startingLocation: PointF) {
+open class Transform(val speed: Float, val objectWidth: Float, val objectHeight: Float, startingLocation: PointF) {
     val collider : RectF = RectF()
     var location: PointF = startingLocation
     val startingPosition : PointF = PointF(location.x,location.y)

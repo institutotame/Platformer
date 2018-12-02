@@ -3,7 +3,7 @@ package com.atinem.platformer.specs.gameobject
 import android.graphics.PointF
 import com.atinem.platformer.components.Components
 
-class BackgroundCitySpec(): GameObjectSpec(
+class BackgroundCitySpec: GameObjectSpec(
     tag = "Background",
     bitmapName = "city",
     speed = 3f,

@@ -13,10 +13,7 @@ class HUD(context: Context, size: Point) {
 
     val controls: List<Rect>
 
-    companion object {
-        const val ONE_THIRD = .33f
-        const val TWO_THIRDS = .66f
-    }
+
 
     init {
         screenHeight = size.y
@@ -38,7 +35,7 @@ class HUD(context: Context, size: Point) {
 
         val left = Rect(buttonPadding,
             screenHeight - buttonHeight - buttonPadding,
-            buttonWidth - buttonPadding,
+            buttonWidth + buttonPadding,
             screenHeight - buttonPadding
         )
 
@@ -52,8 +49,8 @@ class HUD(context: Context, size: Point) {
         val jump = Rect(
             screenWidth - buttonPadding - buttonWidth,
             screenHeight - buttonHeight - buttonPadding,
-            buttonWidth - buttonPadding,
-            buttonHeight - buttonPadding
+            screenWidth - buttonPadding,
+            screenHeight - buttonPadding
         )
         return listOf(left, right, jump)
     }
@@ -124,5 +121,14 @@ class HUD(context: Context, size: Point) {
         }
 
         paint.color = Color.argb(255,255,255,255)
+    }
+
+    companion object {
+        const val ONE_THIRD = .33f
+        const val TWO_THIRDS = .66f
+
+        const val LEFT = 0
+        const val RIGHT = 1
+        const val JUMP = 2
     }
 }

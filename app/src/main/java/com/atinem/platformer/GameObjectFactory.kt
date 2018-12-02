@@ -2,10 +2,7 @@ package com.atinem.platformer
 
 import android.content.Context
 import android.graphics.PointF
-import com.atinem.platformer.components.Components
-import com.atinem.platformer.components.DecorativeBlockUpdateComponent
-import com.atinem.platformer.components.InanimateBlockGraphicsComponent
-import com.atinem.platformer.components.InanimateBlockUpdateComponent
+import com.atinem.platformer.components.*
 import com.atinem.platformer.specs.gameobject.GameObjectSpec
 
 class GameObjectFactory(val context: Context, val gameEngine: GameEngine, val pixelsPerMetre: Int) {
@@ -17,12 +14,26 @@ class GameObjectFactory(val context: Context, val gameEngine: GameEngine, val pi
         gameObject.tag = spec.tag
 
         when(gameObject.tag){
+            "Background" -> {
+                gameObject.transform = BackgroundTransform(spec.speed, spec.size.x, spec.size.y, location)
+            }
+            "Player" -> {
+                gameObject.transform = PlayerTransform(spec.speed, spec.size.x, spec.size.y, location)
+            }
             else -> gameObject.transform = Transform(spec.speed, spec.size.x,spec.size.y,location)
         }
 
         for(i in 0 until numComponents){
             when(spec.components[i]){
-                // TODO SOON
+                Components.PlayerInputComponent -> {
+                    gameObject.setPlayerInputTransform(PlayerInputComponent(gameEngine))
+                }
+                Components.AnimatedGraphicsComponent -> {
+                    gameObject.setGraphics(AnimatedGraphicsComponent(), context, spec, spec.size, pixelsPerMetre)
+                }
+                Components.PlayerUpdateComponent -> {
+                    gameObject.setMovement(PlayerUpdateComponent())
+                }
                 Components.InanimateBlockGraphicsComponent -> {
                     gameObject.setGraphics(InanimateBlockGraphicsComponent(), context, spec, spec.size, pixelsPerMetre)
                 }
@@ -32,8 +43,14 @@ class GameObjectFactory(val context: Context, val gameEngine: GameEngine, val pi
                 Components.DecorativeBlockUpdateComponent -> {
                     gameObject.setMovement(DecorativeBlockUpdateComponent())
                 }
-                else ->{
-
+                Components.BackgroundGraphicsComponent -> {
+                    gameObject.setGraphics(BackgroundGraphicsComponent(), context, spec, spec.size, pixelsPerMetre)
+                }
+                Components.BackgroundUpdateComponent -> {
+                    gameObject.setMovement(BackgroundUpdateComponent())
+                }
+                Components.MovableBlockUpdateComponent -> {
+                    gameObject.setMovement(MovableBlockUpdateComponent())
                 }
             }
         }
